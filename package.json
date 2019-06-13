@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:ci": "npx cypress run --spec 'cypress/integration/**/**.spec.js'"
   },
   "keywords": [],
   "author": "",
