@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    tools {nodejs "node"}
     stages {
         stage('Preparation') {
             steps {
@@ -18,9 +19,15 @@ pipeline {
                 sh 'npm clean'
             }
         }
-        stage('Build') {
+        stages {
+        stage('install Dependencies') {
             steps {
-                sh 'npm test'
+                sh 'npm i'
+            }
+        }
+        stage('Build and run Test') {
+            steps {
+                sh 'npm run cypress:ci'
             }
         }
     }

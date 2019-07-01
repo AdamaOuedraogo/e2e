@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="4.013" tests="1" failures="0">
-  <testsuite name="Root Suite" timestamp="2019-06-26T14:45:50" tests="0" failures="0" time="0">
+<testsuites name="Mocha Tests" time="12.661" tests="1" failures="0">
+  <testsuite name="Root Suite" timestamp="2019-07-01T21:00:57" tests="0" failures="0" time="0">
   </testsuite>
-  <testsuite name="test  du login" timestamp="2019-06-26T14:45:50" tests="1" failures="0" time="4.013">
-    <testcase name="test  du login afficher la page de login" time="4.013" classname="afficher la page de login">
+  <testsuite name="Login to jira feature" timestamp="2019-07-01T21:00:57" tests="1" failures="0" time="12.661">
+    <testcase name="Login to jira feature Login to jira" time="12.661" classname="Login to jira">
     </testcase>
   </testsuite>
 </testsuites>
