@@ -20,7 +20,7 @@ pipeline {
                 sh 'npm clean'
             }
         }
-        stages {
+        
 
         stage('install Dependencies') {
             steps {
@@ -33,6 +33,7 @@ pipeline {
                 sh 'npm run cypress:ci'
             }
         }
+    
     }
     post {
         always {
@@ -46,6 +47,6 @@ pipeline {
     }
 }
 
-}
+
 
    
