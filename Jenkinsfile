@@ -37,10 +37,10 @@ pipeline {
     }
     post {
         always {
-            junit 'results/cypress-report.xml'
+            junit 'cypress-report.xml'
             publishTestResults serverAddress: 'https://nehemiecreation.atlassian.net', 
                     projectKey: 'CTP', 
-                    filePath:'/cypress/results/*.xml', 
+                    filePath:'cypress-report.xml', 
                     format: 'Cucumber', 
                     autoCreateTestCases: false
         }
