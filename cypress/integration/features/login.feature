@@ -1,6 +1,6 @@
 Feature: Login to jira feature
 
-    @TestCaseKey=
+    @TestCaseKey=CT-T1
     Scenario: Login to jira 
       Given I visit jira login page
       When  I set "aouedraogo@nehemiecreation.com"
