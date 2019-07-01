@@ -1,4 +1,5 @@
 pipeline {
+
     agent any
     tools {nodejs "node"}
     stages {
@@ -11,7 +12,7 @@ pipeline {
             steps {
                 downloadFeatureFiles serverAddress: 'https://nehemiecreation.atlassian.net', 
                     projectKey: 'CTP', 
-                    targetPath:'src/test/resources/features'
+                    targetPath:'/cypress/features'
             }
         }
         stage('Clean Work Space'){
@@ -20,11 +21,13 @@ pipeline {
             }
         }
         stages {
+
         stage('install Dependencies') {
             steps {
                 sh 'npm i'
             }
         }
+
         stage('Build and run Test') {
             steps {
                 sh 'npm run cypress:ci'
@@ -36,11 +39,13 @@ pipeline {
             junit 'results/cypress-report.xml'
             publishTestResults serverAddress: 'https://nehemiecreation.atlassian.net', 
                     projectKey: 'CTP', 
-                    filePath:'target/cucumber/*.json', 
+                    filePath:'/cypress/results/*.xml', 
                     format: 'Cucumber', 
                     autoCreateTestCases: false
         }
     }
 }
+
 }
+
    
