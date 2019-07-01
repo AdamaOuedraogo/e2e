@@ -3,31 +3,31 @@ pipeline {
     stages {
         stage('Preparation') {
             steps {
-                git 'ssh://your_repository.git'
+                git 'https://github.com/AdamaOuedraogo/e2e.git'
             }
         }
         stage('Download Feature Files'){
             steps {
-                downloadFeatureFiles serverAddress: 'http://localhost:2990/jira', 
+                downloadFeatureFiles serverAddress: 'https://nehemiecreation.atlassian.net', 
                     projectKey: 'WEB', 
                     targetPath:'src/test/resources/features'
             }
         }
         stage('Clean Work Space'){
             steps {
-                sh 'mvn clean'
+                sh 'npm clean'
             }
         }
         stage('Build') {
             steps {
-                sh 'mvn test'
+                sh 'npm test'
             }
         }
     }
     post {
         always {
             junit 'results/cypress-report.xml'
-            publishTestResults serverAddress: 'http://localhost:2990/jira', 
+            publishTestResults serverAddress: 'https://nehemiecreation.atlassian.net', 
                     projectKey: 'WEB', 
                     filePath:'target/cucumber/*.json', 
                     format: 'Cucumber', 
