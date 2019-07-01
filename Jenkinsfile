@@ -1,39 +1,38 @@
-
 pipeline {
     agent any
-
-    tools {nodejs "node"}
-/*
-    environment {
-        CHROME_BIN = '/bin/google-chrome'
-    }
-*/  
     stages {
-        stage('Dependencies') {
+        stage('Preparation') {
             steps {
-                sh 'npm i'
+                git 'ssh://your_repository.git'
             }
         }
-       
-        /*
-        stage('Unit Tests') {
+        stage('Download Feature Files'){
             steps {
-                sh 'npm run test'
+                downloadFeatureFiles serverAddress: 'http://localhost:2990/jira', 
+                    projectKey: 'WEB', 
+                    targetPath:'src/test/resources/features'
             }
         }
-        */
-
-        stage('e2e Tests') {
+        stage('Clean Work Space'){
             steps {
-                sh 'npm run cypress:ci'
+                sh 'mvn clean'
             }
         }
-       
+        stage('Build') {
+            steps {
+                sh 'mvn test'
+            }
+        }
     }
-
     post {
-    always {
-        junit 'results/cypress-report.xml'
+        always {
+            junit 'results/cypress-report.xml'
+            publishTestResults serverAddress: 'http://localhost:2990/jira', 
+                    projectKey: 'WEB', 
+                    filePath:'target/cucumber/*.json', 
+                    format: 'Cucumber', 
+                    autoCreateTestCases: false
+        }
     }
 }
-}
+   

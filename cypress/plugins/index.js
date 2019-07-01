@@ -35,3 +35,8 @@ module.exports = (on) => {
   }
   on('file:preprocessor', wp(options))
 }
+
+const cucumber = require('cypress-cucumber-preprocessor').default
+module.exports = (on, config) => {
+  on('file:preprocessor', cucumber())
+}

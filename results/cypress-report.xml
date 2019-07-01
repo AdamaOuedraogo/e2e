@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="0.533" tests="1" failures="0">
-  <testsuite name="Root Suite" timestamp="2019-06-15T14:01:33" tests="0" failures="0" time="0">
+<testsuites name="Mocha Tests" time="4.013" tests="1" failures="0">
+  <testsuite name="Root Suite" timestamp="2019-06-26T14:45:50" tests="0" failures="0" time="0">
   </testsuite>
-  <testsuite name="google search" timestamp="2019-06-15T14:01:33" tests="1" failures="0" time="0.533">
-    <testcase name="google search should work" time="0.533" classname="should work">
+  <testsuite name="test  du login" timestamp="2019-06-26T14:45:50" tests="1" failures="0" time="4.013">
+    <testcase name="test  du login afficher la page de login" time="4.013" classname="afficher la page de login">
     </testcase>
   </testsuite>
 </testsuites>
