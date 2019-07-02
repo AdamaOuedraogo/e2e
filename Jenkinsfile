@@ -12,7 +12,7 @@ pipeline {
             steps {
                 downloadFeatureFiles serverAddress: 'https://nehemiecreation.atlassian.net', 
                     projectKey: 'CT', 
-                    targetPath:'/cypress/features'
+                    targetPath:"${WORKSPACE}/integration/cypress/features"
             }
         }
         stage('Clean Work Space'){
