@@ -11,7 +11,7 @@ pipeline {
         stage('Download Feature Files'){
             steps {
                 downloadFeatureFiles serverAddress: 'https://nehemiecreation.atlassian.net', 
-                    projectKey: 'CTP', 
+                    projectKey: 'CT', 
                     targetPath:'/cypress/features'
             }
         }
@@ -39,7 +39,7 @@ pipeline {
         always {
             junit 'cypress-report.xml'
             publishTestResults serverAddress: 'https://nehemiecreation.atlassian.net', 
-                    projectKey: 'CTP', 
+                    projectKey: 'CT', 
                     filePath:'cypress-report.xml', 
                     format: 'Cucumber', 
                     autoCreateTestCases: false
